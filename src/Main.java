@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Main {
@@ -19,7 +20,13 @@ public class Main {
         //System.out.println("coupon value");
         int coupon = scanner.nextInt();
         cart.setCoupon(coupon);
-        System.out.println(cart.getMostExpensiveItem());
+        //System.out.println(cart.getMostExpensiveItem());
+
+        Iterator iterator = cart.getItems();
+        while (iterator.hasNext()) {
+            Item current = (Item) iterator.next();
+            System.out.println(current.getName());
+        }
         System.out.println(cart.getTotalPrice() + " " + cart.remainder());
     }
 }

@@ -1,4 +1,4 @@
-public class Item {
+public class Item implements Comparable<Item> {
     private int price;
     private String name;
     //represents each item we insert in the console
@@ -16,5 +16,12 @@ public class Item {
         return name;
     }
 
-
+    @Override
+    public int compareTo(Item otherItem) {
+        if (otherItem.getPrice() != getPrice()) {
+            return Integer.compare(otherItem.getPrice(), getPrice());
+        } else {
+            return CharSequence.compare(getName(), otherItem.getName());
+        }
+    }
 }

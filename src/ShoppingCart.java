@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 
 public class ShoppingCart {
     private ArrayList<Item> items;
@@ -61,5 +63,10 @@ public class ShoppingCart {
             }
         }
         return coupon;
+    }
+
+    public Iterator<Item> getItems() {
+        Collections.sort(items);
+        return items.iterator();
     }
 }
